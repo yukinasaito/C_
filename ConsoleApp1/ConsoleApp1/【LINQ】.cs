@@ -71,8 +71,8 @@ public class LinqTest
             .Select(dog => dog.color).ToList();
         for (int i = 0; i < dogColorList.Count; i++)
         {
-            Dog dog = dogColorList[i];
-             Console.WriteLine("私は" + dog.name + "です。" + dog.color + "で" + dog.weight.ToString() + "kgです。" + "Listの" + i.ToString() + "番目にいます");
+            string dogColor = dogColorList[i];
+             Console.WriteLine("私は" + dogColor + "です。");
         }
     }
 
