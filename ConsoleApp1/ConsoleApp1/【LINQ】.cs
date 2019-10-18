@@ -22,6 +22,7 @@ public class Dog
     public string name { get; set; }
     public int weight { get; set; }
     public string color { get; set; }
+
 }
 
 public class LinqTest
@@ -66,19 +67,28 @@ public class LinqTest
     // Q2. .Selectを使って、体色だけのList<string> dogColorList を出力してください。
     public static void Test2()
     {
-       // List<string> dogColorList = dogList
-       //.Select(dog => dog.color).ToList();
         Console.WriteLine("Q2");
+        List<string> dogColorList = dogList
+            .Select(dog => dog.color).ToList();
+        for (int i = 0; i < dogColorList.Count; i++)
+        {
+           // Dog dog = dogColorList[i];
+          //  Console.WriteLine("私は" + dog.name + "です。" + dog.color + "で" + dog.weight.ToString() + "kgです。" + "Listの" + i.ToString() + "番目にいます");
+        }
     }
 
     // Q3. .FirstOrDefalutを使って、名前が"shiba"の犬 Dog shiba を1つ出力してください。
     public static void Test3()
     {
-        //Dog shiba = dogList
-        //.FirstOrDefault(dog => dog.name == "shiba");
         Console.WriteLine("Q3");
+        Dog shiba = dogList
+            .FirstOrDefault(dog => dog.name == "shiba");
+        for (int i = 0; i< 1; i++)
+        { 
+            Dog dog = shiba;
+            Console.WriteLine("私は" + dog.name + "です。" + dog.color + "で" + dog.weight.ToString() + "kgです。");
+        }
     }
-
     // Q4. .Whereと.Selectを組み合わせて、体色が"brown"の犬の名前のList<string> brownDogNameListを出力してください。
     public static void Test4()
     {
