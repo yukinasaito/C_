@@ -53,31 +53,37 @@ public class LinqTest
     // Q1. .Whereを使って、重さが30以上の犬だけのList<Dog> heavyDogList を出力してください。
     public static void Test1()
     {
-        List<Dog> heavyDogList = dogList.Where(dog => dog.weight> 30).ToList();
-        Console.WriteLine("Q1" ) ;
+        Console.WriteLine("Q1");
+        List<Dog> heavyDogList = dogList
+            .Where(dog => dog.weight >= 30).ToList();
+        for (int i = 0; i < heavyDogList.Count; i++)
+        {
+            Dog dog = heavyDogList[i];
+            Console.WriteLine("私は" + dog.name + "です。" + dog.color + "で" + dog.weight.ToString() + "kgです。" + "Listの" + i.ToString() + "番目にいます");
 
- 
-
+        }
     }
-
     // Q2. .Selectを使って、体色だけのList<string> dogColorList を出力してください。
     public static void Test2()
     {
-        List<string> dogColorList = dogList.Select(dog => dog.color).ToList();
+       // List<string> dogColorList = dogList
+       //.Select(dog => dog.color).ToList();
         Console.WriteLine("Q2");
     }
 
     // Q3. .FirstOrDefalutを使って、名前が"shiba"の犬 Dog shiba を1つ出力してください。
     public static void Test3()
     {
-        Dog shiba = dogList.FirstOrDefault(dog => dog.name == "shiba");
+        //Dog shiba = dogList
+        //.FirstOrDefault(dog => dog.name == "shiba");
         Console.WriteLine("Q3");
     }
 
     // Q4. .Whereと.Selectを組み合わせて、体色が"brown"の犬の名前のList<string> brownDogNameListを出力してください。
     public static void Test4()
     {
-      //  List<string> brownDogList = dogList.Where(dog => );
+        //  List<string> brownDogList = dogList.
+        //Where(dog => );
 
 
         Console.WriteLine("Q4");
