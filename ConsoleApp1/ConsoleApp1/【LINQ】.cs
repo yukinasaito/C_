@@ -61,7 +61,6 @@ public class LinqTest
         {
             Dog dog = heavyDogList[i];
             Console.WriteLine("私は" + dog.name + "です。" + dog.color + "で" + dog.weight.ToString() + "kgです。" + "Listの" + i.ToString() + "番目にいます");
-
         }
     }
     // Q2. .Selectを使って、体色だけのList<string> dogColorList を出力してください。
@@ -72,8 +71,8 @@ public class LinqTest
             .Select(dog => dog.color).ToList();
         for (int i = 0; i < dogColorList.Count; i++)
         {
-           // Dog dog = dogColorList[i];
-          //  Console.WriteLine("私は" + dog.name + "です。" + dog.color + "で" + dog.weight.ToString() + "kgです。" + "Listの" + i.ToString() + "番目にいます");
+            Dog dog = dogColorList[i];
+             Console.WriteLine("私は" + dog.name + "です。" + dog.color + "で" + dog.weight.ToString() + "kgです。" + "Listの" + i.ToString() + "番目にいます");
         }
     }
 
@@ -83,8 +82,8 @@ public class LinqTest
         Console.WriteLine("Q3");
         Dog shiba = dogList
             .FirstOrDefault(dog => dog.name == "shiba");
-        for (int i = 0; i< 1; i++)
-        { 
+        for (int i = 0; i < 1; i++)
+        {
             Dog dog = shiba;
             Console.WriteLine("私は" + dog.name + "です。" + dog.color + "で" + dog.weight.ToString() + "kgです。");
         }
@@ -92,10 +91,15 @@ public class LinqTest
     // Q4. .Whereと.Selectを組み合わせて、体色が"brown"の犬の名前のList<string> brownDogNameListを出力してください。
     public static void Test4()
     {
-        //  List<string> brownDogList = dogList.
-        //Where(dog => );
-
-
         Console.WriteLine("Q4");
+        List<string> brownDogNameList =  dogList
+            .Where(dog => dog.color == "brown")
+            .Select(dog => dog.name).ToList();
+
+        for (int i = 0; i < brownDogNameList.Count ; i++)
+        {
+            string brownDogName = brownDogNameList[i];
+            Console.WriteLine("名前は" + brownDogName + "です。" );
+        }
     }
 }
